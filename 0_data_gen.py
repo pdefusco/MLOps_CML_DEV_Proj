@@ -104,6 +104,13 @@ from pyspark import SparkContext
 SparkContext.setSystemProperty('spark.executor.cores', '2')
 SparkContext.setSystemProperty('spark.executor.memory', '4g')
 
+import cml.data_v1 as cmldata
+
+# Sample in-code customization of spark configurations
+#from pyspark import SparkContext
+#SparkContext.setSystemProperty('spark.executor.cores', '1')
+#SparkContext.setSystemProperty('spark.executor.memory', '2g')
+
 CONNECTION_NAME = "go01-aw-dl"
 conn = cmldata.get_connection(CONNECTION_NAME)
 spark = conn.get_spark_session()
