@@ -121,7 +121,7 @@ dbname = "MLOPS"
 #       SQL CLEANUP: DATABASES, TABLES, VIEWS
 #---------------------------------------------------
 print("JOB STARTED...")
-#spark.sql("DROP DATABASE IF EXISTS {} CASCADE".format(dbname))
+spark.sql("DROP DATABASE IF EXISTS {} CASCADE".format(dbname))
 
 spark.sql("CREATE DATABASE IF NOT EXISTS {}".format(dbname))
 
@@ -145,20 +145,20 @@ def createOrAppend(df, dbname, username):
   The table is used to simulate batches of new data
   The table is meant to be updated periodically as part of a CML Job
   """
-  
+
   try:
     print("TRY TO APPEND NEW BATCH OF DATA\n")
     df.writeTo("{0}.BANKING_TRANSACTIONS_{1}".format(dbname, username))\
       .using("iceberg").tableProperty("write.format.default", "parquet").append()
     print("TABLE WAS FOUND AND DATA WAS APPENDED\n")
-    
+
   except:
     print("TABLE WAS NOT FOUND\n")
     print("CREATING TABLE NOW\n")
     df.writeTo("{0}.BANKING_TRANSACTIONS_{1}".format(dbname, username))\
         .using("iceberg").tableProperty("write.format.default", "parquet").createOrReplace()
     print("TABLE CREATED AND POPULATED WITH DATA\n")
-    
+
 createOrAppend(bankTransactionsDf, dbname, username)
-    
+
 print("BATCH LOAD JOB COMPLETED\n")
