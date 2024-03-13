@@ -4,7 +4,7 @@ This is the DEV git repository for the [CML MLOps Workshop](https://github.com/p
 
 ### Project Deployment
 
-If you are following the MLOps Workshop guide, this project will be automatically deployed for you when you run script [06_mlflow_apiv2.py](https://github.com/pdefusco/CML_MLOps_ACE_Workshop/blob/main/code/part3/06_mlflow_apiv2.py). As an alternative, you can just deploy this project directly in CML by manually creating a project with this git url:
+If you are following the MLOps Workshop guide, this project will be automatically deployed for you when you run script [06_mlflow_apiv2.py](https://github.com/pdefusco/CML_MLOps_ACE_Workshop/blob/main/code/part3/06_mlflow_apiv2.py). As an alternative, you can just deploy this project directly in CML by manually creating a project with this git url: https://github.com/pdefusco/MLOps_CML_DEV_Proj
 
 ### High Level Workflow
 
